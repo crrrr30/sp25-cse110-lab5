@@ -1,0 +1,16 @@
+name: Unit Tests
+
+on: [push]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm install
+      - name: Run unit tests for `sum`
+        run: npm test ./__tests__/sum.test.js
+      - name: Run unit tests for `unit-test-me`
+        run: npm test ./__tests__/unit.test.js
